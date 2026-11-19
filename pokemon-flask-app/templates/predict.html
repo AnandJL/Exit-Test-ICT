@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Type Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="brand" href="{{ url_for('home') }}">Pokémon Predictor</a>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+
+    <main class="container">
+        <section class="form-card card">
+            <span class="eyebrow">Prediction Form</span>
+            <h1>Enter Pokémon Statistics</h1>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="hp">HP</label>
+                        <input id="hp" name="hp" type="number"
+                               min="1" step="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="attack">Attack</label>
+                        <input id="attack" name="attack" type="number"
+                               min="0" step="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="defense">Defense</label>
+                        <input id="defense" name="defense" type="number"
+                               min="0" step="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="height_dm">Height (dm)</label>
+                        <input id="height_dm" name="height_dm" type="number"
+                               min="0" step="any" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="weight_hg">Weight (hg)</label>
+                        <input id="weight_hg" name="weight_hg" type="number"
+                               min="0" step="any" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="base_experience">Base Experience</label>
+                        <input id="base_experience" name="base_experience"
+                               type="number" min="0" step="any" required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="button button-primary" type="submit">
+                        Predict Type
+                    </button>
+                    <a class="button button-secondary"
+                       href="{{ url_for('home') }}">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

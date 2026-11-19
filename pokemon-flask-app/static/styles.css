@@ -1,0 +1,245 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+    --text: #162033;
+    --muted: #64748b;
+    --border: #dde5ef;
+    --danger: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.navbar {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.brand {
+    color: var(--text) !important;
+    font-size: 20px;
+}
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    margin: 48px auto;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
+}
+
+.hero {
+    min-height: 390px;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    align-items: center;
+    gap: 40px;
+    padding: 48px;
+}
+
+.hero h1,
+.form-card h1,
+.result-card h1 {
+    margin: 8px 0 16px;
+    font-size: 38px;
+}
+
+.hero p {
+    max-width: 620px;
+    margin: 0 0 24px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.hero-stat {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #eef4ff;
+    text-align: center;
+}
+
+.hero-stat strong {
+    color: var(--primary);
+    font-size: 64px;
+    line-height: 1;
+}
+
+.hero-stat span {
+    margin-top: 8px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.form-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.field input {
+    width: 100%;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 16px;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.error {
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #fff1f2;
+    color: var(--danger);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.button-primary:hover {
+    background: var(--primary-dark);
+}
+
+.button-secondary {
+    background: #edf3ff;
+    color: var(--primary-dark);
+}
+
+.result-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px;
+    text-align: center;
+}
+
+.predicted-type {
+    margin: 24px 0;
+    padding: 28px;
+    border-radius: 12px;
+    background: #eef4ff;
+    color: var(--primary-dark);
+    font-size: 38px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        height: auto;
+        padding: 14px 20px;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+        margin: 24px auto;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .hero-stat {
+        height: 140px;
+    }
+
+    .form-card,
+    .result-card {
+        padding: 24px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1,
+    .form-card h1,
+    .result-card h1 {
+        font-size: 30px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
